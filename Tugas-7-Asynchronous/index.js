@@ -7,14 +7,15 @@ const books = [
     {name: 'Kalkulus', timeSpent: 4000}
 ]
 
-const baca = (time, books, i) => {
-  if (i < books.length ) {
-    readBooks(time, books[i], function(sisaWaktu) {
-      if (sisaWaktu > 0 ) {
-        i += 1 
-        baca(sisaWaktu, books, i)
-      }
-    })
+function iqro(time,books,i){
+  if (i < books.length){
+      readBooks(time,books[i],function (timeout){
+          if (timeout>0){
+              i += 1;
+              iqro(timeout, books, i)
+          }
+      })
   }
 }
-baca(10000, books, 0)
+
+iqro(10000,books,0)
